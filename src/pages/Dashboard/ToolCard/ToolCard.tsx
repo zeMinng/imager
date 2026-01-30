@@ -10,7 +10,7 @@ interface ToolCardProps {
   isSmall?: boolean
 }
 
-const ToolCard: React.FC<ToolCardProps> = ({ 
+const ToolCard: React.FC<ToolCardProps> = ({
   tool,
   onSelect,
   className = '',
@@ -38,7 +38,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
             {tool.icon}
           </div>
           <div className="tool-card__tags">
-            {tool.tags.map(tag => (
+            {tool.tags.map((tag) => (
               <span key={tag} className="tool-card__tag">
                 {tag}
               </span>
@@ -57,9 +57,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
       </div>
 
       <div className={`tool-card__footer ${isLg ? 'tool-card__footer--large' : ''}`}>
-        <span className="tool-card__action-text">
-          {isComingSoon ? '即将推出' : '打开模块'}
-        </span>
+        <span className="tool-card__action-text">{isComingSoon ? '即将推出' : '打开模块'}</span>
         <div className="tool-card__action-icon">
           <ArrowRight size={14} />
         </div>

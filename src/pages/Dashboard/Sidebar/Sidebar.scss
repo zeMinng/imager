@@ -9,24 +9,24 @@
   border-right: 1px solid rgb(226 232 240 / 60%);
   backdrop-filter: blur(12px);
   flex-shrink: 0;
-  
+
   @media (width >= 1024px) {
     display: block;
   }
-  
+
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
   }
-  
+
   &__section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   &__title {
     padding: 0 0.75rem;
     margin-bottom: 1rem;
@@ -36,13 +36,13 @@
     color: rgb(148 163 184);
     text-transform: uppercase;
   }
-  
+
   &__nav-list {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   }
-  
+
   &__nav-item {
     display: flex;
     width: 100%;
@@ -55,50 +55,50 @@
     transition: all 0.3s;
     align-items: center;
     gap: 0.75rem;
-    
+
     &--active {
       color: white;
       background: rgb(37 99 235);
       transform: translateX(4px);
       box-shadow: 0 10px 15px -3px rgb(59 130 246 / 20%);
     }
-    
+
     &:not(&--active) {
       color: rgb(100 116 139);
-      
+
       &:hover {
         color: rgb(15 23 42);
         background: rgb(248 250 252);
       }
     }
   }
-  
+
   &__queue-card {
     padding: 0.75rem;
     background: rgb(248 250 252);
     border: 1px solid rgb(241 245 249);
     border-radius: 0.75rem;
   }
-  
+
   &__queue-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
   }
-  
+
   &__queue-label {
     font-size: 10px;
     font-weight: 700;
     color: rgb(100 116 139);
   }
-  
+
   &__queue-status {
     font-size: 10px;
     font-weight: 900;
     color: rgb(16 185 129);
   }
-  
+
   &__queue-progress {
     width: 100%;
     height: 0.25rem;
@@ -106,13 +106,13 @@
     background: rgb(226 232 240);
     border-radius: 9999px;
   }
-  
+
   &__queue-progress-bar {
     width: 0;
     height: 100%;
     background: rgb(37 99 235);
   }
-  
+
   &__promo {
     position: relative;
     padding: 1.25rem;
@@ -122,23 +122,23 @@
     background: rgb(15 23 42);
     border-radius: 24px;
     transition: transform 0.3s;
-    
+
     &:hover {
       transform: scale(1.05);
     }
-    
+
     &-bg {
       position: absolute;
       right: -1rem;
       bottom: -1rem;
       opacity: 10%;
       transition: transform 0.3s;
-      
+
       .sidebar__promo:hover & {
         transform: scale(1.1);
       }
     }
-    
+
     &-label {
       margin-bottom: 0.5rem;
       font-size: 10px;
@@ -146,14 +146,14 @@
       color: rgb(96 165 250);
       text-transform: uppercase;
     }
-    
+
     &-text {
       margin-bottom: 1rem;
       font-size: 0.75rem;
       font-weight: 700;
       line-height: 1.625;
     }
-    
+
     &-link {
       display: flex;
       font-size: 10px;

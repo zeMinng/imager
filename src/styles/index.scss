@@ -22,11 +22,15 @@
 .canvas-bg {
   background-color: #f0f2f5;
   background-image:
-      linear-gradient(45deg, #e1e4e8 25%, transparent 25%),
-      linear-gradient(135deg, #e1e4e8 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #e1e4e8 75%),
-      linear-gradient(135deg, transparent 75%, #e1e4e8 75%);
-  background-position: 0 0, 10px 0, 10px -10px, 0 10px;
+    linear-gradient(45deg, #e1e4e8 25%, transparent 25%),
+    linear-gradient(135deg, #e1e4e8 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e1e4e8 75%),
+    linear-gradient(135deg, transparent 75%, #e1e4e8 75%);
+  background-position:
+    0 0,
+    10px 0,
+    10px -10px,
+    0 10px;
   background-size: 20px 20px;
 }
 
@@ -96,7 +100,9 @@ input[type='range'] {
     background-color: var(--color-primary);
     border: 2px solid var(--color-bg-surface);
     border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--color-bg-surface), var(--shadow-sm);
+    box-shadow:
+      0 0 0 2px var(--color-bg-surface),
+      var(--shadow-sm);
     transition: background-color 0.2s ease;
     appearance: none;
   }
@@ -107,7 +113,9 @@ input[type='range'] {
     background-color: var(--color-primary);
     border: 2px solid var(--color-bg-surface);
     border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--color-bg-surface), var(--shadow-sm);
+    box-shadow:
+      0 0 0 2px var(--color-bg-surface),
+      var(--shadow-sm);
     transition: background-color 0.2s ease;
   }
 

@@ -18,7 +18,7 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
     format: 'png',
     margin: 0,
     gap: 0,
-    direction: 'vertical'
+    direction: 'vertical',
   })
   const [isProcessing, setIsProcessing] = useState(false)
   const [zoom, setZoom] = useState(0.8)
@@ -32,7 +32,7 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
   }
 
   const handleAddImages = (files: File[]) => {
-    files.forEach(file => {
+    files.forEach((file) => {
       const reader = new FileReader()
       reader.onload = () => {
         const newImage: ImageFile = {
@@ -40,23 +40,23 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
           file,
           preview: reader.result as string,
           name: file.name,
-          size: file.size
+          size: file.size,
         }
-        setImages(prev => [...prev, newImage])
+        setImages((prev) => [...prev, newImage])
       }
       reader.readAsDataURL(file)
     })
   }
 
   const removeImage = (id: string) => {
-    setImages(prev => prev.filter(img => img.id !== id))
+    setImages((prev) => prev.filter((img) => img.id !== id))
   }
 
   const moveImage = (index: number, direction: 'up' | 'down') => {
     const newImages = [...images]
     const targetIndex = direction === 'up' ? index - 1 : index + 1
     if (targetIndex >= 0 && targetIndex < newImages.length) {
-      [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]]
+      ;[newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]]
       setImages(newImages)
     }
   }
@@ -87,8 +87,8 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
           </button>
 
           <div className="stitcher__zoom-control">
-            <button 
-              onClick={() => setZoom(Math.max(0.1, zoom - 0.1))} 
+            <button
+              onClick={() => setZoom(Math.max(0.1, zoom - 0.1))}
               className="stitcher__zoom-button"
             >
               <Minimize2 size={18} />
@@ -96,8 +96,8 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
             <div className="stitcher__zoom-divider"></div>
             <span className="stitcher__zoom-value">{Math.round(zoom * 100)}%</span>
             <div className="stitcher__zoom-divider"></div>
-            <button 
-              onClick={() => setZoom(Math.min(2, zoom + 0.1))} 
+            <button
+              onClick={() => setZoom(Math.min(2, zoom + 0.1))}
               className="stitcher__zoom-button"
             >
               <Maximize2 size={18} />
@@ -107,16 +107,13 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
           <div className="stitcher__toolbar-spacer"></div>
         </div>
 
-        <div 
-          className="stitcher__preview"
-          style={{ transform: `scale(${zoom})` }}
-        >
+        <div className="stitcher__preview" style={{ transform: `scale(${zoom})` }}>
           {images.length > 0 ? (
-            <div 
+            <div
               className="stitcher__preview-content"
               style={{ padding: `${settings.margin}px`, gap: `${settings.gap}px` }}
             >
-              {images.map(img => (
+              {images.map((img) => (
                 <div key={img.id} className="stitcher__preview-item">
                   <img src={img.preview} alt="stitching preview" />
                 </div>

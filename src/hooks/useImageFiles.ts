@@ -9,9 +9,9 @@ export function useImageFiles() {
   const [images, setImages] = useState<ImageFile[]>([])
 
   const addImages = useCallback((files: File[]) => {
-    const newImages: ImageFile[] = []
-    
-    files.forEach(file => {
+    // const newImages: ImageFile[] = []
+
+    files.forEach((file) => {
       const reader = new FileReader()
       reader.onload = () => {
         const newImage: ImageFile = {
@@ -19,24 +19,24 @@ export function useImageFiles() {
           file,
           preview: reader.result as string,
           name: file.name,
-          size: file.size
+          size: file.size,
         }
-        setImages(prev => [...prev, newImage])
+        setImages((prev) => [...prev, newImage])
       }
       reader.readAsDataURL(file)
     })
   }, [])
 
   const removeImage = useCallback((id: string) => {
-    setImages(prev => prev.filter(img => img.id !== id))
+    setImages((prev) => prev.filter((img) => img.id !== id))
   }, [])
 
   const moveImage = useCallback((index: number, direction: 'up' | 'down') => {
-    setImages(prev => {
+    setImages((prev) => {
       const newImages = [...prev]
       const targetIndex = direction === 'up' ? index - 1 : index + 1
       if (targetIndex >= 0 && targetIndex < newImages.length) {
-        [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]]
+        ;[newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]]
       }
       return newImages
     })
@@ -51,7 +51,6 @@ export function useImageFiles() {
     addImages,
     removeImage,
     moveImage,
-    clearImages
+    clearImages,
   }
 }
-

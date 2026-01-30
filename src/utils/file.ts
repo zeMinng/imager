@@ -3,11 +3,11 @@
  */
 export function formatFileSize(bytes: number): string {
   if (bytes === 0) return '0 B'
-  
+
   const k = 1024
   const sizes = ['B', 'KB', 'MB', 'GB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
-  
+
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
 }
 
@@ -29,18 +29,17 @@ export function isValidImageFile(file: File): boolean {
 /**
  * 批量验证文件
  */
-export function validateImageFiles(files: File[]): { valid: File[], invalid: File[] } {
+export function validateImageFiles(files: File[]): { valid: File[]; invalid: File[] } {
   const valid: File[] = []
   const invalid: File[] = []
-  
-  files.forEach(file => {
+
+  files.forEach((file) => {
     if (isValidImageFile(file)) {
       valid.push(file)
     } else {
       invalid.push(file)
     }
   })
-  
+
   return { valid, invalid }
 }
-

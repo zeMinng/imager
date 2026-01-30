@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
           <div className="sidebar__nav">
             <h3 className="sidebar__title">System Navigation</h3>
             <nav className="sidebar__nav-list">
-              {SIDEBAR_ITEMS.map(item => (
+              {SIDEBAR_ITEMS.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => onTabChange(item.id)}
@@ -51,9 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
             <Cpu size={80} />
           </div>
           <p className="sidebar__promo-label">Imager 图片处理工具箱</p>
-          <p className="sidebar__promo-text">
-            无需服务器，直接在浏览器中使用
-          </p>
+          <p className="sidebar__promo-text">无需服务器，直接在浏览器中使用</p>
           <div className="sidebar__promo-link">
             了解更多 <ArrowRight size={10} />
           </div>

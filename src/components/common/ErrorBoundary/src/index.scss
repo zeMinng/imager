@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 .error-boundary {
   position: relative;
@@ -70,7 +70,6 @@
       }
     }
 
-
     .error-stack {
       width: 100%;
       max-width: 100%;
@@ -110,7 +109,7 @@
         border-radius: 4px;
         box-sizing: border-box;
         overflow-wrap: break-word;
-        
+
         // 确保内容不会溢出
         * {
           max-width: 100%;

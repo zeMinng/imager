@@ -30,23 +30,18 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
       <div className="media-pool__header">
         <div className="media-pool__title-group">
           <ImageIcon className="media-pool__icon" size={18} />
-          <h3 className="media-pool__title">
-            Media ({images.length})
-          </h3>
+          <h3 className="media-pool__title">Media ({images.length})</h3>
         </div>
-        <button 
-          onClick={() => fileInputRef.current?.click()}
-          className="media-pool__add-button"
-        >
+        <button onClick={() => fileInputRef.current?.click()} className="media-pool__add-button">
           <Plus size={14} />
           <span>Add</span>
         </button>
-        <input 
-          type="file" 
-          multiple 
-          accept="image/*" 
-          className="media-pool__file-input" 
-          ref={fileInputRef} 
+        <input
+          type="file"
+          multiple
+          accept="image/*"
+          className="media-pool__file-input"
+          ref={fileInputRef}
           onChange={handleFileChange}
         />
       </div>
@@ -71,29 +66,27 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
                 </div>
                 <div className="media-pool__item-info">
                   <p className="media-pool__item-name">{img.name}</p>
-                  <p className="media-pool__item-size">
-                    {(img.size / 1024 / 1024).toFixed(2)} MB
-                  </p>
+                  <p className="media-pool__item-size">{(img.size / 1024 / 1024).toFixed(2)} MB</p>
                 </div>
               </div>
-              
+
               <div className="media-pool__item-actions">
-                <button 
-                  onClick={() => onMoveImage(idx, 'up')} 
-                  disabled={idx === 0} 
+                <button
+                  onClick={() => onMoveImage(idx, 'up')}
+                  disabled={idx === 0}
                   className="media-pool__action-button"
                 >
                   <MoveUp size={14} />
                 </button>
-                <button 
-                  onClick={() => onMoveImage(idx, 'down')} 
-                  disabled={idx === images.length - 1} 
+                <button
+                  onClick={() => onMoveImage(idx, 'down')}
+                  disabled={idx === images.length - 1}
                   className="media-pool__action-button"
                 >
                   <MoveDown size={14} />
                 </button>
-                <button 
-                  onClick={() => onRemoveImage(img.id)} 
+                <button
+                  onClick={() => onRemoveImage(img.id)}
                   className="media-pool__action-button media-pool__action-button--danger"
                 >
                   <Trash2 size={14} />
@@ -106,4 +99,3 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
     </aside>
   )
 }
-

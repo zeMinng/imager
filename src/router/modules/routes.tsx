@@ -19,9 +19,7 @@ const routes: RouteObject[] = [
       },
       {
         path: 'stitcher',
-        element: (
-          <Stitcher />
-        ),
+        element: <Stitcher />,
       },
     ],
   },

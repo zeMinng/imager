@@ -41,7 +41,7 @@
   align-items: center;
   gap: 0.5rem;
   backdrop-filter: blur(12px);
-  
+
   &:hover {
     color: rgb(37 99 235);
     background: white;
@@ -64,7 +64,7 @@
   color: rgb(100 116 139);
   border-radius: 0.75rem;
   transition: all 0.3s;
-  
+
   &:hover {
     background: rgb(241 245 249);
   }
@@ -108,7 +108,7 @@
 
 .stitcher__preview-item {
   position: relative;
-  
+
   img {
     display: block;
     width: 100%;
@@ -133,7 +133,7 @@
   border-radius: 2.5rem;
   align-items: center;
   justify-content: center;
-  
+
   svg {
     opacity: 40%;
   }
@@ -145,4 +145,3 @@
   letter-spacing: -0.025em;
   color: rgb(148 163 184);
 }
-

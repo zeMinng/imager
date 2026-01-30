@@ -5,7 +5,7 @@ import type { CategoryType } from '@/types/dashboard'
 import './Header.scss'
 
 const Header: React.FC<{ activeTab: CategoryType }> = ({ activeTab }) => {
-  const currentLabel = SIDEBAR_ITEMS.find(s => s.id === activeTab)?.label || 'Dashboard'
+  const currentLabel = SIDEBAR_ITEMS.find((s) => s.id === activeTab)?.label || 'Dashboard'
 
   return (
     <div className="dashboard__header">
@@ -19,9 +19,9 @@ const Header: React.FC<{ activeTab: CategoryType }> = ({ activeTab }) => {
 
       <div className="dashboard__search">
         <Search className="dashboard__search-icon" size={18} />
-        <input 
-          type="text" 
-          placeholder="Search tools or drop files..." 
+        <input
+          type="text"
+          placeholder="Search tools or drop files..."
           className="dashboard__search-input"
         />
       </div>

@@ -4,10 +4,10 @@
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
+  overflow: hidden;
   background-color: rgb(248 250 252);
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 
   @media (width >= 1024px) {
     padding: 3rem;
@@ -22,7 +22,7 @@
     opacity: 3%;
     transform: translate(-50%, -50%);
     transition: transform 0.7s;
-    
+
     .notfound-container:hover & {
       transform: translate(-50%, -50%) scale(1.1) rotate(6deg);
     }
@@ -73,9 +73,9 @@
     margin-bottom: 1rem;
     font-size: 6rem;
     font-weight: 900;
+    line-height: 1;
     letter-spacing: -0.025em;
     color: rgb(15 23 42);
-    line-height: 1;
 
     @media (width >= 768px) {
       font-size: 8rem;
@@ -87,9 +87,9 @@
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 900;
+    line-height: 1.25;
     letter-spacing: -0.025em;
     color: rgb(15 23 42);
-    line-height: 1.25;
 
     @media (width >= 768px) {
       font-size: 2rem;
@@ -106,8 +106,8 @@
     color: rgb(100 116 139);
 
     @media (width >= 768px) {
-      font-size: 1rem;
       margin-bottom: 3rem;
+      font-size: 1rem;
     }
   }
 

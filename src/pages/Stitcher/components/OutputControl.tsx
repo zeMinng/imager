@@ -18,10 +18,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
   isProcessing,
   imageCount,
 }) => {
-  const updateSetting = <K extends keyof StitchSettings>(
-    key: K,
-    value: StitchSettings[K]
-  ) => {
+  const updateSetting = <K extends keyof StitchSettings>(key: K, value: StitchSettings[K]) => {
     onSettingsChange({ ...settings, [key]: value })
   }
 
@@ -42,7 +39,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
             <Info size={12} />
           </label>
           <div className="output-control__format-grid">
-            {(['jpg', 'png', 'webp'] as const).map(fmt => (
+            {(['jpg', 'png', 'webp'] as const).map((fmt) => (
               <button
                 key={fmt}
                 onClick={() => updateSetting('format', fmt)}
@@ -62,10 +59,10 @@ export const OutputControl: React.FC<OutputControlProps> = ({
             <label className="output-control__label">Master Quality</label>
             <span className="output-control__value">{settings.quality}%</span>
           </div>
-          <input 
-            type="range" 
-            min="1" 
-            max="100" 
+          <input
+            type="range"
+            min="1"
+            max="100"
             value={settings.quality}
             onChange={(e) => updateSetting('quality', parseInt(e.target.value))}
             className="output-control__slider"
@@ -78,10 +75,10 @@ export const OutputControl: React.FC<OutputControlProps> = ({
             <label className="output-control__label">Outer Padding</label>
             <span className="output-control__value">{settings.margin}px</span>
           </div>
-          <input 
-            type="range" 
-            min="0" 
-            max="128" 
+          <input
+            type="range"
+            min="0"
+            max="128"
             step="4"
             value={settings.margin}
             onChange={(e) => updateSetting('margin', parseInt(e.target.value))}
@@ -95,10 +92,10 @@ export const OutputControl: React.FC<OutputControlProps> = ({
             <label className="output-control__label">Inter-Image Gap</label>
             <span className="output-control__value">{settings.gap}px</span>
           </div>
-          <input 
-            type="range" 
-            min="0" 
-            max="64" 
+          <input
+            type="range"
+            min="0"
+            max="64"
             step="2"
             value={settings.gap}
             onChange={(e) => updateSetting('gap', parseInt(e.target.value))}
@@ -109,12 +106,19 @@ export const OutputControl: React.FC<OutputControlProps> = ({
         {/* Direction Toggle */}
         <div className="output-control__section">
           <label className="output-control__label">Stack Direction</label>
-          <button 
-            onClick={() => updateSetting('direction', settings.direction === 'vertical' ? 'horizontal' : 'vertical')}
+          <button
+            onClick={() =>
+              updateSetting(
+                'direction',
+                settings.direction === 'vertical' ? 'horizontal' : 'vertical',
+              )
+            }
             className="output-control__direction-button"
           >
             <span className="capitalize">{settings.direction} Alignment</span>
-            <span className={`output-control__direction-icon ${settings.direction === 'horizontal' ? 'output-control__direction-icon--rotated' : ''}`}>
+            <span
+              className={`output-control__direction-icon ${settings.direction === 'horizontal' ? 'output-control__direction-icon--rotated' : ''}`}
+            >
               ↕
             </span>
           </button>
@@ -126,7 +130,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
           <span className="output-control__footer-label">Est. Dimensions</span>
           <span className="output-control__footer-value">4000 × 12400</span>
         </div>
-        <button 
+        <button
           onClick={onDownload}
           disabled={imageCount === 0 || isProcessing}
           className="output-control__download-button"
@@ -147,4 +151,3 @@ export const OutputControl: React.FC<OutputControlProps> = ({
     </aside>
   )
 }
-

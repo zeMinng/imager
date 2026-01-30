@@ -16,20 +16,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgb(37 99 235 / 3%) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 50%, rgb(37 99 235 / 3%) 0%, transparent 70%);
   animation: breathe 4s ease-in-out infinite;
 }
 
 @keyframes breathe {
-  0%, 100% {
-    opacity: 0.6;
+  0%,
+  100% {
+    opacity: 60%;
   }
+
   50% {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
@@ -46,11 +44,12 @@
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0%;
     transform: translateY(20px);
   }
+
   to {
-    opacity: 1;
+    opacity: 100%;
     transform: translateY(0);
   }
 }
@@ -73,23 +72,23 @@
   animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 
   &:nth-child(1) {
-    animation-delay: -0.45s;
     border-top-color: var(--color-primary);
-    opacity: 1;
+    opacity: 100%;
+    animation-delay: -0.45s;
   }
 
   &:nth-child(2) {
-    animation-delay: -0.3s;
     border-top-color: var(--color-primary-light);
-    opacity: 0.8;
+    opacity: 80%;
     transform: scale(0.85);
+    animation-delay: -0.3s;
   }
 
   &:nth-child(3) {
-    animation-delay: -0.15s;
     border-top-color: var(--color-primary);
-    opacity: 0.6;
+    opacity: 60%;
     transform: scale(0.7);
+    animation-delay: -0.15s;
   }
 }
 
@@ -97,6 +96,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -120,10 +120,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
+  0%,
+  100% {
+    opacity: 60%;
   }
+
   50% {
-    opacity: 1;
+    opacity: 100%;
   }
 }

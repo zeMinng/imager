@@ -29,7 +29,7 @@
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-primary);
     transition: transform 0.3s ease;
-    
+
     svg {
       width: 20px;
       height: 20px;
@@ -74,7 +74,9 @@
     background-color: transparent;
     border: none;
     border-radius: var(--border-radius-md);
-    transition: color 0.2s, background-color 0.2s;
+    transition:
+      color 0.2s,
+      background-color 0.2s;
     align-items: center;
     justify-content: center;
 

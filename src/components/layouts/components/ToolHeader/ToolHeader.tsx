@@ -21,11 +21,13 @@ const ToolHeader: React.FC = () => {
       </div>
 
       <div className="tool-header__actions">
-        <div className="time" style={{fontSize: 14, color: 'var(--color-text-muted)'}}>最后更新时间：{__BUILD_TIME__}</div>
-        <a 
+        <div className="time" style={{ fontSize: 14, color: 'var(--color-text-muted)' }}>
+          最后更新时间：{__BUILD_TIME__}
+        </div>
+        <a
           href="https://github.com/zeMinng"
-          target="_blank" 
-          rel="noopener noreferrer" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="action-button"
           aria-label="GitHub Repository"
         >

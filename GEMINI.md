@@ -51,21 +51,22 @@ The following scripts are available in `package.json`:
   ```bash
   npm run preview
   ```
-*   **Lint Code:**
-    ```bash
-    npm run lint:code
-    ```
-    *(Runs `oxlint`)*
-*   **Lint Styles:**
-    ```bash
-    npm run lint:style
-    ```
-    *(Runs `stylelint`)*
-*   **Lint All:**
-    ```bash
-    npm run lint
-    ```
-    *(Runs both code and style linting)*
+
+* **Lint Code:**
+  ```bash
+  npm run lint:code
+  ```
+  _(Runs `oxlint`)_
+* **Lint Styles:**
+  ```bash
+  npm run lint:style
+  ```
+  _(Runs `stylelint`)_
+* **Lint All:**
+  ```bash
+  npm run lint
+  ```
+  _(Runs both code and style linting)_
 
 ## Development Conventions
 
