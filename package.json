@@ -8,8 +8,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
+    "lint": "npm run lint:code && npm run lint:style",
+    "lint:code": "oxlint",
+    "lint:code:fix": "oxlint --fix",
+    "lint:style": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:style:fix": "stylelint \"src/**/*.{css,scss}\" --fix",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "preview": "vite preview",
@@ -47,7 +50,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "oxlint --fix"
+      "oxlint --fix",
+      "oxfmt"
     ],
     "*.{css,scss}": [
       "stylelint --fix"
