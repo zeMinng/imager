@@ -1,0 +1,118 @@
+@use './themes/theme';
+
+// ----------------------------------------
+// Custom Utility Classes
+// ----------------------------------------
+
+// Glassmorphism Effect
+// Used in headers, sidebars for a modern, blurred background effect.
+.glass {
+  background-color: rgb(255 255 255 / 65%);
+  backdrop-filter: saturate(180%) blur(12px);
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .glass {
+    background-color: rgb(255 255 255 / 95%);
+  }
+}
+
+// Canvas Background
+// A checkered pattern often used for transparency previews.
+.canvas-bg {
+  background-color: #f0f2f5;
+  background-image:
+      linear-gradient(45deg, #e1e4e8 25%, transparent 25%),
+      linear-gradient(135deg, #e1e4e8 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e1e4e8 75%),
+      linear-gradient(135deg, transparent 75%, #e1e4e8 75%);
+  background-position: 0 0, 10px 0, 10px -10px, 0 10px;
+  background-size: 20px 20px;
+}
+
+// Custom Scrollbar
+// For a more subtle, modern scrollbar that fits the UI aesthetic.
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-bg-muted);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-full);
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-subtle);
+  }
+}
+
+// ----------------------------------------
+// Base Element Styles
+// ----------------------------------------
+// h1, h2, h3, h4, h5, h6 {
+//   font-weight: var(--font-weight-black);
+//   letter-spacing: var(--letter-spacing-tight);
+//   color: var(--color-text-heading);
+// }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary-light);
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+// ----------------------------------------
+// Common Component Overrides
+// ----------------------------------------
+
+// Slider / Range Input Style
+input[type='range'] {
+  height: 4px;
+  cursor: pointer;
+  background-color: var(--color-bg-muted);
+  border-radius: var(--border-radius-full);
+  outline: none;
+  appearance: none;
+
+  &::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-bg-surface);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--color-bg-surface), var(--shadow-sm);
+    transition: background-color 0.2s ease;
+    appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-bg-surface);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--color-bg-surface), var(--shadow-sm);
+    transition: background-color 0.2s ease;
+  }
+
+  &:active::-webkit-slider-thumb,
+  &:active::-moz-range-thumb {
+    background-color: var(--color-primary-light);
+  }
+}

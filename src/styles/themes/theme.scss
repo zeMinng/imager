@@ -1,0 +1,78 @@
+:root {
+  // ----------------------------------------
+  // Color System
+  // ----------------------------------------
+
+  // Primary & Accent Colors
+  --color-primary: #2563eb; // blue-600
+  --color-primary-light: #3b82f6; // blue-500
+  --color-primary-bg: #eff6ff; // blue-50
+  --color-primary-shadow: #bfdbfe; // blue-200
+
+  // Text Colors
+  --color-text-base: #1e293b; // slate-800
+  --color-text-heading: #0f172a; // slate-900
+  --color-text-muted: #64748b; // slate-500
+  --color-text-subtle: #94a3b8; // slate-400
+
+  // Background & Surface Colors
+  --color-bg-base: #f8fafc; // Light gray background
+  --color-bg-surface: #fff; // Card/component background
+  --color-bg-subtle: #f1f5f9; // slate-100, for inputs, buttons
+  --color-bg-muted: #e2e8f0; // slate-200
+
+  // Border & Separator Colors
+  --color-border: #e2e8f0; // slate-200
+  --color-border-hover: #93c5fd; // blue-300
+  --color-border-subtle: rgb(226 232 240 / 60%);
+
+  // Status & Feedback Colors
+  --color-success: #10b981; // emerald-500
+  --color-danger: #ef4444; // red-500
+  --color-danger-bg: #fee2e2; // red-50
+  --color-warning: #f59e0b; // amber-500
+
+  // ----------------------------------------
+  // Typography System
+  // ----------------------------------------
+  --font-family-sans: 'Inter', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
+  --letter-spacing-widest: 0.2em;
+
+  // ----------------------------------------
+  // Sizing, Spacing & Layout
+  // ----------------------------------------
+  --header-height: 4rem; // 64px
+  --footer-height: 2rem; // 32px
+  --sidebar-width: 340px;
+
+  // ----------------------------------------
+  // Borders & Radii
+  // ----------------------------------------
+  --border-radius-sm: 0.5rem;   // 8px
+  --border-radius-md: 0.75rem;  // 12px, rounded-xl
+  --border-radius-lg: 1rem;     // 16px, rounded-2xl
+  --border-radius-xl: 1.5rem;   // 24px
+  --border-radius-xxl: 2rem;    // 32px
+  --border-radius-full: 9999px;
+  --border-width: 1px;
+
+  // ----------------------------------------
+  // Shadows
+  // ----------------------------------------
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 25%);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 5%);
+  --shadow-primary: 0 4px 14px 0 var(--color-primary-shadow);
+}

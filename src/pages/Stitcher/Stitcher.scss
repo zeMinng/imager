@@ -1,0 +1,148 @@
+.stitcher {
+  display: flex;
+  height: calc(100vh - 4rem);
+  overflow: hidden;
+  background: white;
+}
+
+.stitcher__canvas {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background: #f8f9fa;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stitcher__toolbar {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  left: 1.5rem;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stitcher__back-button {
+  display: flex;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgb(71 85 105);
+  background: rgb(255 255 255 / 80%);
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  transition: all 0.3s;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(12px);
+  
+  &:hover {
+    color: rgb(37 99 235);
+    background: white;
+  }
+}
+
+.stitcher__zoom-control {
+  display: flex;
+  padding: 0.375rem;
+  background: rgb(255 255 255 / 80%);
+  border: 1px solid rgb(226 232 240);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%);
+  align-items: center;
+  backdrop-filter: blur(12px);
+}
+
+.stitcher__zoom-button {
+  padding: 0.5rem;
+  color: rgb(100 116 139);
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: rgb(241 245 249);
+  }
+}
+
+.stitcher__zoom-divider {
+  width: 1px;
+  height: 1rem;
+  margin: 0 0.5rem;
+  background: rgb(226 232 240);
+}
+
+.stitcher__zoom-value {
+  width: 3.5rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: rgb(30 41 59);
+  text-align: center;
+}
+
+.stitcher__toolbar-spacer {
+  width: 7.5rem;
+}
+
+.stitcher__preview {
+  position: relative;
+  display: flex;
+  padding: 5rem;
+  transition: transform 0.3s ease-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.stitcher__preview-content {
+  display: flex;
+  background: white;
+  border: 1px solid white;
+  box-shadow: 0 40px 100px -20px rgb(0 0 0 / 10%);
+  flex-direction: column;
+}
+
+.stitcher__preview-item {
+  position: relative;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+  }
+}
+
+.stitcher__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(203 213 225);
+}
+
+.stitcher__empty-icon {
+  display: flex;
+  width: 8rem;
+  height: 8rem;
+  margin-bottom: 1.5rem;
+  border: 4px dashed rgb(226 232 240);
+  border-radius: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    opacity: 40%;
+  }
+}
+
+.stitcher__empty-text {
+  font-size: 1.125rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: rgb(148 163 184);
+}
+

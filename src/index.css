@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  overflow: hidden;
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  color-scheme: light dark;
+  font-synthesis: none;
+
+  /* user-select: none; */
+}
+
+:root, body {
+  padding: 0;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#root,
+.app {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-size: 16px;
+  color: var(--color-text-base);
+  background-color: var(--color-bg-base);
+}
+
+::selection {
+  color: var(--color-primary);
+  background: rgb(37 99 235 / 10%);
+}
+
+/* .glass {
+  background: rgb(255 255 255 / 70%);
+  backdrop-filter: blur(20px);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+  background-clip: content-box;
+}
+
+.canvas-bg {
+  background-color: #f8fafc;
+  background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+} */
