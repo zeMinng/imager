@@ -31,7 +31,7 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
         <div className="media-pool__title-group">
           <ImageIcon className="media-pool__icon" size={18} />
           <h3 className="media-pool__title">
-            Media ({images.length})
+            图片 ({images.length})
           </h3>
         </div>
         <button 
@@ -39,7 +39,7 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
           className="media-pool__add-button"
         >
           <Plus size={14} />
-          <span>Add</span>
+          <span>点击添加</span>
         </button>
         <input 
           type="file" 
@@ -58,7 +58,7 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
               <Plus size={24} />
             </div>
             <p className="media-pool__empty-text">
-              Drop your images here or click Add to begin stitching.
+              将您的图片拖到此处或点击添加开始拼接
             </p>
           </div>
         ) : (

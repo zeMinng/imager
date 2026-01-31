@@ -27,7 +27,7 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
     if (onBack) {
       onBack()
     } else {
-      navigate('/')
+      navigate('/dashboard')
     }
   }
 
@@ -79,11 +79,11 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
         onMoveImage={moveImage}
       />
 
-      <div className="stitcher__canvas canvas-dot">
+      <main className="stitcher__canvas">
         <div className="stitcher__toolbar">
           <button onClick={handleBack} className="stitcher__back-button">
             <ChevronLeft size={16} />
-            <span>主页</span>
+            <span>Dashboard</span>
           </button>
 
           <div className="stitcher__zoom-control">
@@ -127,11 +127,11 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
               <div className="stitcher__empty-icon">
                 <Layers size={48} />
               </div>
-              <p className="stitcher__empty-text">空工作区</p>
+              <p className="stitcher__empty-text">Empty Workspace</p>
             </div>
           )}
         </div>
-      </div>
+      </main>
 
       <OutputControl
         settings={settings}

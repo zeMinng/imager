@@ -1,9 +1,5 @@
 @use './themes/theme';
 
-// ----------------------------------------
-// Custom Utility Classes
-// ----------------------------------------
-
 // Glassmorphism Effect
 // Used in headers, sidebars for a modern, blurred background effect.
 .glass {
@@ -28,6 +24,12 @@
       linear-gradient(135deg, transparent 75%, #e1e4e8 75%);
   background-position: 0 0, 10px 0, 10px -10px, 0 10px;
   background-size: 20px 20px;
+}
+
+.canvas-dot {
+  background-color: var(--color-bg-base);
+  background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
 }
 
 // Custom Scrollbar

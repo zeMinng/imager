@@ -30,7 +30,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
       <div className="output-control__header">
         <div className="output-control__title-group">
           <Settings2 className="output-control__icon" size={18} />
-          <h3 className="output-control__title">Output Control</h3>
+          <h3 className="output-control__title">参数配置调整</h3>
         </div>
       </div>
 
@@ -38,7 +38,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
         {/* Format Selection */}
         <div className="output-control__section">
           <label className="output-control__label">
-            Target Format
+            目标格式
             <Info size={12} />
           </label>
           <div className="output-control__format-grid">
@@ -59,7 +59,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
         {/* Quality Slider */}
         <div className="output-control__section">
           <div className="output-control__slider-header">
-            <label className="output-control__label">Master Quality</label>
+            <label className="output-control__label">品质</label>
             <span className="output-control__value">{settings.quality}%</span>
           </div>
           <input 
@@ -75,7 +75,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
         {/* Padding Adjust */}
         <div className="output-control__section">
           <div className="output-control__slider-header">
-            <label className="output-control__label">Outer Padding</label>
+            <label className="output-control__label">外部填充</label>
             <span className="output-control__value">{settings.margin}px</span>
           </div>
           <input 
@@ -92,7 +92,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
         {/* Gap Adjust */}
         <div className="output-control__section">
           <div className="output-control__slider-header">
-            <label className="output-control__label">Inter-Image Gap</label>
+            <label className="output-control__label">图像间隙</label>
             <span className="output-control__value">{settings.gap}px</span>
           </div>
           <input 
@@ -108,7 +108,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
 
         {/* Direction Toggle */}
         <div className="output-control__section">
-          <label className="output-control__label">Stack Direction</label>
+          <label className="output-control__label">堆叠方向</label>
           <button 
             onClick={() => updateSetting('direction', settings.direction === 'vertical' ? 'horizontal' : 'vertical')}
             className="output-control__direction-button"
@@ -123,7 +123,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
 
       <div className="output-control__footer">
         <div className="output-control__footer-info">
-          <span className="output-control__footer-label">Est. Dimensions</span>
+          <span className="output-control__footer-label">尺寸</span>
           <span className="output-control__footer-value">4000 × 12400</span>
         </div>
         <button 
@@ -139,7 +139,7 @@ export const OutputControl: React.FC<OutputControlProps> = ({
           ) : (
             <>
               <Download size={18} />
-              <span>Export Stitched Asset</span>
+              <span>导出</span>
             </>
           )}
         </button>

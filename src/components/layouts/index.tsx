@@ -10,8 +10,8 @@ const MyLayout: React.FC = () => {
       <ToolHeader />
       <main className="main">
         <Outlet />
-      </main>
       <Footer />
+      </main>
     </div>
   )
 }

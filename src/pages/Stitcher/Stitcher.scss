@@ -1,19 +1,19 @@
 .stitcher {
   display: flex;
-  height: calc(100vh - 4rem);
-  overflow: hidden;
-  background: white;
-}
-
-.stitcher__canvas {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  background: #f8f9fa;
+  width: 100%;
   flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+
+  .stitcher__canvas {
+    position: relative;
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .stitcher__toolbar {
@@ -33,6 +33,7 @@
   font-size: 0.875rem;
   font-weight: 700;
   color: rgb(71 85 105);
+  cursor: pointer;
   background: rgb(255 255 255 / 80%);
   border: 1px solid rgb(226 232 240);
   border-radius: 0.75rem;
@@ -57,36 +58,36 @@
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%);
   align-items: center;
   backdrop-filter: blur(12px);
-}
 
-.stitcher__zoom-button {
-  padding: 0.5rem;
-  color: rgb(100 116 139);
-  border-radius: 0.75rem;
-  transition: all 0.3s;
-  
-  &:hover {
-    background: rgb(241 245 249);
+  .stitcher__zoom-button {
+    padding: 0.5rem;
+    color: rgb(100 116 139);
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+    
+    &:hover {
+      background: rgb(241 245 249);
+    }
   }
-}
 
-.stitcher__zoom-divider {
-  width: 1px;
-  height: 1rem;
-  margin: 0 0.5rem;
-  background: rgb(226 232 240);
-}
+  .stitcher__zoom-divider {
+    width: 1px;
+    height: 1rem;
+    margin: 0 0.5rem;
+    background: rgb(226 232 240);
+  }
 
-.stitcher__zoom-value {
-  width: 3.5rem;
-  font-size: 0.75rem;
-  font-weight: 900;
-  color: rgb(30 41 59);
-  text-align: center;
-}
+  .stitcher__zoom-value {
+    width: 3.5rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: rgb(30 41 59);
+    text-align: center;
+  }
 
-.stitcher__toolbar-spacer {
-  width: 7.5rem;
+  .stitcher__toolbar-spacer {
+    width: 7.5rem;
+  }
 }
 
 .stitcher__preview {
