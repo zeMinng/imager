@@ -9,7 +9,7 @@ export function useImageFiles() {
   const [images, setImages] = useState<ImageFile[]>([])
 
   const addImages = useCallback((files: File[]) => {
-    const newImages: ImageFile[] = []
+    // const newImages: ImageFile[] = []
     
     files.forEach(file => {
       const reader = new FileReader()
@@ -54,4 +54,3 @@ export function useImageFiles() {
     clearImages
   }
 }
-

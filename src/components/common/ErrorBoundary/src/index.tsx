@@ -15,6 +15,8 @@ function ErrorFallback({ error, resetErrorBoundary, componentStack }: FallbackPr
   const handleGoHome = () => (window.location.href = '/')
   const handleReload = () => window.location.reload()
 
+  const errorMessage = error instanceof Error ? error.message : String(error)
+
   return (
     <div className="error-boundary">
       <div className="error-result">
@@ -28,7 +30,7 @@ function ErrorFallback({ error, resetErrorBoundary, componentStack }: FallbackPr
         <div className="error-details">
           <div className="error-outline">
             <h2 className="error-title">错误信息：</h2>
-            <p className="error-message">{error.message}</p>
+            <p className="error-message">{errorMessage}</p>
           </div>
           {componentStack && (
             <details className="error-stack" open={showStack}>
@@ -73,16 +75,15 @@ export function ErrorBoundaryComponent({ children }: { children: ReactNode }) {
       FallbackComponent={(props) => (
         <ErrorFallback {...props} componentStack={componentStack} />
       )}
-      onError={(error: Error, info: ErrorInfo) => {
-        const { message, stack } = error // 错误信息
+      onError={(error: unknown, info: ErrorInfo) => {
+        // 类型守卫：确保 error 是 Error 类型
+        const errorObj = error instanceof Error ? error : new Error(String(error))
+        const { message, stack } = errorObj // 错误信息
         const { componentStack } = info // 组件栈
-        /** 1. 生产模式：上报错误 */
         reportError({ message, stack, componentStack })
-        /** 2. UI 模式：保存组件栈 */
         setComponentStack(componentStack ?? undefined)
       }}
       onReset={() => {
-        /** 重置组件栈 */
         setComponentStack(undefined)
       }}
     >
@@ -93,7 +94,5 @@ export function ErrorBoundaryComponent({ children }: { children: ReactNode }) {
 
 /** 错误上报 */
 const reportError = (payload: any) => {
-  // componentStack 是给前端开发者定位组件错误的（UI 更友好）
-  // stack 是更低层信息（通常不适合直接展示在 UI）
   console.error('上报错误：', payload)
 }

@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { Plus, Image as ImageIcon, MoveUp, MoveDown, Trash2 } from 'lucide-react'
+import FileInput from '@/components/business/FileInput'
 import type { ImageFile } from '@/types'
 import './MediaPool.scss'
 
@@ -16,13 +17,9 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
   onRemoveImage,
   onMoveImage,
 }) => {
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || [])
-    if (files.length > 0) {
-      onAddImages(files)
-    }
+  const handleFileChange = (files: File[]) => {
+    // FileInput 现在只返回本次新选择的文件，直接传递给父组件处理
+    onAddImages(files)
   }
 
   return (
@@ -34,21 +31,8 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
             图片 ({images.length})
           </h3>
         </div>
-        <button 
-          onClick={() => fileInputRef.current?.click()}
-          className="media-pool__add-button"
-        >
-          <Plus size={14} />
-          <span>点击添加</span>
-        </button>
-        <input 
-          type="file" 
-          multiple 
-          accept="image/*" 
-          className="media-pool__file-input" 
-          ref={fileInputRef} 
-          onChange={handleFileChange}
-        />
+
+        <FileInput onImageChange={handleFileChange} />
       </div>
 
       <div className="media-pool__content">
