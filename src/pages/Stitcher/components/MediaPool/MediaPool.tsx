@@ -1,6 +1,7 @@
 import React from 'react'
 import { Plus, Image as ImageIcon, MoveUp, MoveDown, Trash2 } from 'lucide-react'
 import FileInput from '@/components/business/FileInput'
+import { formatFileSize } from '@/utils/file'
 import type { ImageFile } from '@/types'
 import './MediaPool.scss'
 
@@ -18,7 +19,6 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
   onMoveImage,
 }) => {
   const handleFileChange = (files: File[]) => {
-    // FileInput 现在只返回本次新选择的文件，直接传递给父组件处理
     onAddImages(files)
   }
 
@@ -56,7 +56,7 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
                 <div className="media-pool__item-info">
                   <p className="media-pool__item-name">{img.name}</p>
                   <p className="media-pool__item-size">
-                    {(img.size / 1024 / 1024).toFixed(2)} MB
+                    {formatFileSize(img.size)}
                   </p>
                 </div>
               </div>

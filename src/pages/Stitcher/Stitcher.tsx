@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, Maximize2, Minimize2, Layers } from 'lucide-react'
 import type { ImageFile, StitchSettings } from '@/types'
-import { MediaPool } from './components/MediaPool'
+import { MediaPool } from './components/MediaPool/MediaPool'
 import { OutputControl } from './components/OutputControl'
 import './Stitcher.scss'
 
