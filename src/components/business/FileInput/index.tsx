@@ -1,4 +1,4 @@
-import React, { useState, useRef, type ChangeEvent, useMemo, useEffect } from 'react'
+import React, { useState, useRef, useMemo, type ChangeEvent } from 'react'
 import { Plus, X } from 'lucide-react'
 import './index.scss'
 

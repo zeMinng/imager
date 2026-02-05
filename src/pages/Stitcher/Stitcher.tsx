@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, Maximize2, Minimize2, Layers } from 'lucide-react'
-import type { ImageFile, StitchSettings } from '@/types'
+import { nanoid } from 'nanoid'
+import type { ImageFile, StitchSettings } from '@/types/stitcher'
+import { stitchImagesToBlob } from '@/utils'
 import { MediaPool } from './components/MediaPool/MediaPool'
 import { OutputControl } from './components/OutputControl'
 import './Stitcher.scss'
 
-interface StitcherProps {
-  onBack?: () => void
-}
-
-const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
+const Stitcher: React.FC = () => {
   const navigate = useNavigate()
   const [images, setImages] = useState<ImageFile[]>([])
   const [settings, setSettings] = useState<StitchSettings>({
@@ -23,20 +21,14 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
   const [isProcessing, setIsProcessing] = useState(false)
   const [zoom, setZoom] = useState(0.8)
 
-  const handleBack = () => {
-    if (onBack) {
-      onBack()
-    } else {
-      navigate('/')
-    }
-  }
+  const handleBack = () => navigate('/')
 
   const handleAddImages = (files: File[]) => {
     files.forEach(file => {
       const reader = new FileReader()
       reader.onload = () => {
         const newImage: ImageFile = {
-          id: Math.random().toString(36).substr(2, 9),
+          id: nanoid(),
           file,
           preview: reader.result as string,
           name: file.name,
@@ -62,12 +54,34 @@ const Stitcher: React.FC<StitcherProps> = ({ onBack }) => {
   }
 
   const handleDownload = async () => {
-    if (images.length === 0) return
-    setIsProcessing(true)
-    setTimeout(() => {
+    if (images.length === 0 || isProcessing) return
+
+    try {
+      setIsProcessing(true)
+
+      const blob = await stitchImagesToBlob(images, {
+        quality: settings.quality,
+        format: settings.format,
+        margin: settings.margin,
+        gap: settings.gap,
+        direction: settings.direction,
+      })
+
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `stitcher-${Date.now()}.${settings.format}`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error(error)
+      // 这里可以换成更友好的全局提示组件
+      alert('生成拼接图片失败，请重试')
+    } finally {
       setIsProcessing(false)
-      alert('Success! Image stitched at 8K resolution.')
-    }, 2000)
+    }
   }
 
   return (
