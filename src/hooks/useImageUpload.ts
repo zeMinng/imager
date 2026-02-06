@@ -2,6 +2,10 @@ import { useState, useCallback, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import type { ImageFile } from '@/types/stitcher'
 
+/**
+ * 图片文件管理 Hook
+ * 提供图片的添加、删除、移动等功能
+ */
 export const useImageUpload = () => {
   const [images, setImages] = useState<ImageFile[]>([])
 
