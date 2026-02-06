@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, use } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import type { ImageFile } from '@/types/stitcher'
 
