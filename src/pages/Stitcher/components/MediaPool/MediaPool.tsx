@@ -9,7 +9,7 @@ interface MediaPoolProps {
   images: ImageFile[]
   onAddImages: (files: File[]) => void
   onRemoveImage: (id: string) => void
-  onMoveImage: (index: number, direction: 'up' | 'down') => void
+  onMoveImage: (id: string, direction: 'up' | 'down') => void
 }
 
 export const MediaPool: React.FC<MediaPoolProps> = ({
@@ -63,14 +63,14 @@ export const MediaPool: React.FC<MediaPoolProps> = ({
               
               <div className="media-pool__item-actions">
                 <button 
-                  onClick={() => onMoveImage(idx, 'up')} 
+                  onClick={() => onMoveImage(img.id, 'up')} 
                   disabled={idx === 0} 
                   className="media-pool__action-button"
                 >
                   <MoveUp size={14} />
                 </button>
                 <button 
-                  onClick={() => onMoveImage(idx, 'down')} 
+                  onClick={() => onMoveImage(img.id, 'down')} 
                   disabled={idx === images.length - 1} 
                   className="media-pool__action-button"
                 >

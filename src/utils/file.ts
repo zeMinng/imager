@@ -1,7 +1,10 @@
+import { nanoid } from 'nanoid'
+
 /**
- * 文件大小格式化
+ * 文件大小格式化，返回带单位的文件大小
+ * @param {number} bytes - 文件大小
  */
-export function formatFileSize(bytes: number): string {
+export const formatFileSize = (bytes: number): string => {
   if (bytes === 0) return '0 B'
   const k = 1024
   const sizes = ['B', 'KB', 'MB', 'GB']
@@ -11,10 +14,9 @@ export function formatFileSize(bytes: number): string {
 
 /**
  * 生成唯一 ID
+ * @param {number} length - ID 长度
  */
-export function generateId(prefix = ''): string {
-  return `${prefix}${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-}
+export const generateId = (length: number = 8): string => nanoid(length)
 
 /**
  * 验证文件类型

@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, Maximize2, Minimize2, Layers } from 'lucide-react'
-import { nanoid } from 'nanoid'
+import { useImageUpload } from '@/hooks/useImageUpload'
 import type { ImageFile, StitchSettings } from '@/types/stitcher'
-import { stitchImagesToBlob } from '@/utils'
+import { generateId } from '@/utils/file'
+import { stitchImagesToBlob } from '@/utils/image'
 import { MediaPool } from './components/MediaPool/MediaPool'
 import { OutputControl } from './components/OutputControl'
 import './Stitcher.scss'
 
 const Stitcher: React.FC = () => {
   const navigate = useNavigate()
-  const [images, setImages] = useState<ImageFile[]>([])
+  const { images, addImages, removeImage, moveImage } = useImageUpload()
   const [settings, setSettings] = useState<StitchSettings>({
     quality: 92,
     format: 'png',
@@ -22,36 +23,6 @@ const Stitcher: React.FC = () => {
   const [zoom, setZoom] = useState(0.8)
 
   const handleBack = () => navigate('/')
-
-  const handleAddImages = (files: File[]) => {
-    files.forEach(file => {
-      const reader = new FileReader()
-      reader.onload = () => {
-        const newImage: ImageFile = {
-          id: nanoid(),
-          file,
-          preview: reader.result as string,
-          name: file.name,
-          size: file.size
-        }
-        setImages(prev => [...prev, newImage])
-      }
-      reader.readAsDataURL(file)
-    })
-  }
-
-  const removeImage = (id: string) => {
-    setImages(prev => prev.filter(img => img.id !== id))
-  }
-
-  const moveImage = (index: number, direction: 'up' | 'down') => {
-    const newImages = [...images]
-    const targetIndex = direction === 'up' ? index - 1 : index + 1
-    if (targetIndex >= 0 && targetIndex < newImages.length) {
-      [newImages[index], newImages[targetIndex]] = [newImages[targetIndex], newImages[index]]
-      setImages(newImages)
-    }
-  }
 
   const handleDownload = async () => {
     if (images.length === 0 || isProcessing) return
@@ -88,7 +59,7 @@ const Stitcher: React.FC = () => {
     <div className="stitcher">
       <MediaPool
         images={images}
-        onAddImages={handleAddImages}
+        onAddImages={addImages}
         onRemoveImage={removeImage}
         onMoveImage={moveImage}
       />
