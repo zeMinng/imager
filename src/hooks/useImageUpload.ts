@@ -12,15 +12,33 @@ export const useImageUpload = () => {
   // 添加图片
   const addImages = useCallback(async (files: File[]) => {
     const newImagePromises = files.map(file => {
-      return new Promise<ImageFile>((resolve) => {
+      return new Promise<ImageFile>((resolve, reject) => {
         const previewUrl = URL.createObjectURL(file)
-        resolve({
-          id: nanoid(),
-          file,
-          preview: previewUrl,
-          name: file.name,
-          size: file.size,
-        })
+        const img = new Image()
+        
+        img.onload = () => {
+          resolve({
+            id: nanoid(),
+            file,
+            preview: previewUrl,
+            name: file.name,
+            size: file.size,
+            rotation: 0,
+            crop: { 
+              x: 0, 
+              y: 0, 
+              width: img.width, 
+              height: img.height 
+            },
+          })
+        }
+
+        img.onerror = () => {
+          URL.revokeObjectURL(previewUrl)
+          reject(new Error(`Failed to load image: ${file.name}`))
+        }
+
+        img.src = previewUrl
       })
     })
 

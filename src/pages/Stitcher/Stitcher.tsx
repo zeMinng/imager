@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeft, Maximize2, Minimize2, Layers } from 'lucide-react'
 import { useImageUpload } from '@/hooks/useImageUpload'
@@ -7,6 +7,7 @@ import { generateId } from '@/utils/file'
 import { stitchImagesToBlob } from '@/utils/image'
 import { MediaPool } from './components/MediaPool/MediaPool'
 import { OutputControl } from './components/OutputControl'
+import { StitchCanvas } from '@/components/business/StitchCanvas/StitchCanvas'
 import './Stitcher.scss'
 
 const Stitcher: React.FC = () => {
@@ -54,6 +55,11 @@ const Stitcher: React.FC = () => {
       setIsProcessing(false)
     }
   }
+  const canvasRef = useRef<any>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [config, setConfig] = useState({
+    gap: 0, padding: 0, direction: 'vertical', scale: 0.05
+  })
 
   return (
     <div className="stitcher">
@@ -64,7 +70,7 @@ const Stitcher: React.FC = () => {
         onMoveImage={moveImage}
       />
 
-      <div className="stitcher__canvas canvas-dot">
+      {/* <div className="stitcher__canvas canvas-dot">
         <div className="stitcher__toolbar">
           <button onClick={handleBack} className="stitcher__back-button">
             <ChevronLeft size={16} />
@@ -115,6 +121,22 @@ const Stitcher: React.FC = () => {
               <p className="stitcher__empty-text">空工作区</p>
             </div>
           )}
+        </div>
+      </div> */}
+
+      <div className="stitcher__canvas canvas-dot">
+
+        <div className="stitcher__preview">
+          <StitchCanvas
+            ref={canvasRef}
+            images={images}
+            config={config}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            onUpdateCrop={(id, newCrop) => {
+              // 更新状态中的图片裁剪数据
+            }}
+          />
         </div>
       </div>
 

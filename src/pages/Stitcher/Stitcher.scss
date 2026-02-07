@@ -93,7 +93,9 @@
 .stitcher__preview {
   position: relative;
   display: flex;
-  padding: 5rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
   transition: transform 0.3s ease-out;
   align-items: center;
   justify-content: center;
